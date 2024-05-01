@@ -1,3 +1,6 @@
+using ExpensesManagementApp.Configuration;
+using ExpensesManagementApp.DAO;
+using ExpensesManagementApp.Services;
 using Serilog;
 
 namespace ExpensesManagementApp
@@ -15,6 +18,9 @@ namespace ExpensesManagementApp
 
             // Add services to the container.
             builder.Services.AddRazorPages();
+            builder.Services.AddScoped<IExpenseDAO, ExpenseDAOImpl>();
+            builder.Services.AddScoped<IExpenseService, ExpenseServiceImpl>();
+            builder.Services.AddAutoMapper(typeof(MapperConfig));
 
             var app = builder.Build();
 
