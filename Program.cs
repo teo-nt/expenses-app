@@ -1,6 +1,9 @@
 using ExpensesManagementApp.Configuration;
 using ExpensesManagementApp.DAO;
+using ExpensesManagementApp.DTO;
 using ExpensesManagementApp.Services;
+using ExpensesManagementApp.Validators;
+using FluentValidation;
 using Serilog;
 
 namespace ExpensesManagementApp
@@ -21,6 +24,8 @@ namespace ExpensesManagementApp
             builder.Services.AddScoped<IExpenseDAO, ExpenseDAOImpl>();
             builder.Services.AddScoped<IExpenseService, ExpenseServiceImpl>();
             builder.Services.AddAutoMapper(typeof(MapperConfig));
+            builder.Services.AddScoped<IValidator<ExpenseInsertDTO>, ExpenseInsertValidator>();
+            builder.Services.AddScoped<IValidator<ExpenseUpdateDTO>, ExpenseUpdateValidator>();
 
             var app = builder.Build();
 
