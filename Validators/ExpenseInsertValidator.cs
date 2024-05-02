@@ -15,7 +15,7 @@ namespace ExpensesManagementApp.Validators
 
             RuleFor(e => e.Amount)
                 .NotEmpty()
-                .WithMessage("'Amount' should not be empty")
+                .WithMessage("'Amount' should be a number")
                 .GreaterThan(0)
                 .WithMessage("'Amount' should be positive")
                 .PrecisionScale(12, 2, true)

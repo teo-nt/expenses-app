@@ -1,10 +1,50 @@
-﻿@page
+﻿@page 
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "All";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<h2 class="text-center mb-4 fs-2">Expenses</h2>
+<a class="btn btn-primary btn-lg mb-4" href="/Create">New Expense</a>
+
+<table class="mx-auto table table-dark text-center align-middle">
+    <thead>
+        <tr>
+            <th colspan="6">My Expenses</th>
+        </tr>
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>AMOUNT</th>
+            <th>CATEGORY</th>
+            <th>DATE</th>
+            <th>EDIT/DELETE</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Expenses.Count != 0)
+        {
+            @foreach (var expense in Model.Expenses)
+            {
+                <tr>
+                    <td>@expense.Id</td>
+                    <td>@expense.Name</td>
+                    <td>@expense.Amount</td>
+                    <td>@expense.Category</td>
+                    <td>@expense.Date.ToShortDateString()</td>
+                    <td>
+                        <a class="btn btn-primary" href="/@expense.Id/update">Edit</a>
+                        <a class="btn btn-primary" href="javascript:void(0)" onclick="confirmDelete(@expense.Id)">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+<div>
+    @if (Model.ErrorObj is not null)
+    {
+        <p>@Model.ErrorObj.Message</p>
+    }
 </div>
