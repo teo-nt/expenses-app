@@ -24,7 +24,7 @@
     <div class="row mb-3 align-items-center">
         <label for="category" class="col-md-1 form-label">Category</label>
         <div class="col-md-6">
-            <select class="form-select" id="category" name="category" aria-label="Select category">
+            <select asp-for="@Model.ExpenseInsertDTO.Category" class="form-select" id="category" name="category" aria-label="Select category">
                 <option selected disabled>Select Category</option>
                 <option value="Bills">Bills</option>
                 <option value="Education">Education</option>
