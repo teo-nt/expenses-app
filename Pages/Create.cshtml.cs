@@ -41,7 +41,6 @@ namespace ExpensesManagementApp.Pages
 
             try
             {
-                Console.WriteLine(dto);
                 _expenseService.InsertExpense(dto);
                 Response.Redirect("/Index");
             }
