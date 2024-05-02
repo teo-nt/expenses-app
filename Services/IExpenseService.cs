@@ -8,7 +8,7 @@ namespace ExpensesManagementApp.Services
         Expense? InsertExpense(ExpenseInsertDTO dto);
         Expense? UpdateExpense(ExpenseUpdateDTO dto);
         Expense? DeleteExpense(int id);
-        Expense? GetExpense(int id);
+        Expense GetExpense(int id);
         IList<Expense> GetAllExpenses();
         IList<Expense> GetExpensesByName(string name);
     }

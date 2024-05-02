@@ -22,6 +22,8 @@ namespace ExpensesManagementApp.Validators
                 .WithMessage("'Amount' must not be more than 12 digits in total, with allowance for 2 decimals.");
 
             RuleFor(e => e.Category)
+                .NotEmpty()
+                .WithMessage("'Category' should be selected")
                 .Length(3, 20)
                 .WithMessage("'Category' should be 3-20 characters");
         }

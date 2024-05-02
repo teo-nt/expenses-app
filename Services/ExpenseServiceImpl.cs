@@ -59,7 +59,7 @@ namespace ExpensesManagementApp.Services
             return expenses;
         }
 
-        public Expense? GetExpense(int id)
+        public Expense GetExpense(int id)
         {
             try
             {
